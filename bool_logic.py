@@ -46,6 +46,4 @@ s6 = a or b or (not c) and b or (a or not c) or not((not a) or b or ((not a) and
 
 ## f = 1 ##
 
-## g =  
-
  
