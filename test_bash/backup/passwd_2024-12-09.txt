@@ -1,0 +1,1 @@
+postgres:x:118:119:PostgreSQL administrator,,,:/var/lib/postgresql:/bin/bash
