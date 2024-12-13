@@ -1,0 +1,5 @@
+#### Ressources utilisées pour réussir l'exercice #####
+https://stackoverflow.com/questions/19506470/input-in-assembly-language
+https://stackoverflow.com/questions/30559082/defining-variables-in-assembly-language
+https://www.quora.com/How-do-you-print-out-a-string-in-Assembly-code
+https://tryhackme.com/r/room/x86assemblycrashcourse
