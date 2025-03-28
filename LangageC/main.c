@@ -29,6 +29,12 @@ int main() {
 	while (running) {
 		printf("Enter direction to move (t=up, h=right, g=down, f=left, q=quit): ");
 		scanf(" %c", &direction);
+		// Ici vous lisez uniquement le premier char, du coup le reste du buffer d'input
+		// n'est pas vidé. Pour éviter cela on peut soit itérer sur le reste du buffer
+		// avec getchar, soit (et on préfèrera souvent cette solution), utiliser
+		// fgets pour lire l'input (et donc vider le buffer) et prendre le premier char renvoyé.
+		// Vu l'exercice, on peut penser à désactiver le mode canonique afin d'envoyer immédiatement
+		// chaque touche au programme dès qu'elle est tapée (cf bibliotheque termios)
 		if (direction == 'q') {
 			running = 0;
 		}
