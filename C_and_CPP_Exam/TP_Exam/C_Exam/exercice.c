@@ -21,7 +21,14 @@ int is_in_array(void *obj_to_find, void *array, int nb_of_elems_in_array, size_t
     }
   }
   return 0;
+
+  // On peut itérer directement sur les objets via leurs pointeurs, un peu comme un foreach en JS ou for elem in elems en python:
+  // for (char *obj = (char *)array; obj < (char *)array + nb_of_elems_in_array * elem_size; obj += elem_size) {}
+
+  // A noter qu'ici on converti void* en char* afin de pouvoir itérer sur les blocs mémoire (obj += elem_size)
+  // Dans la pratique c'est à éviter dans la mesure du possible car cela peut devenir assez confus, je le met à titre d'exemple
 }
+
 
 void swap(void *a, void *b, size_t size) {
   char temp[size];
@@ -44,6 +51,8 @@ void eq_function() {
   if (same_age == 1) { printf("Same age.\n"); }
   else { printf("Not same age.\n"); }
 }
+
+//On peut penser à une fonction de comparaison qui return 1 si obj1 > obj2, -1 si obj1 < obj2 et 0 si égaux
 
 void linear_search() {
   Person person1 = {50};
@@ -106,6 +115,15 @@ int main() {
   for (int i = 0; i < sizeof(people) / sizeof(Person); i++) {
     printf("Person %d: age %d\n", i, people[i].age);
   }
+
+  // Ici l'itération sur les pointeurs sera plus claire:
+  for (Person *p = people; p < people + sizeof(people) / sizeof(Person); p++) {
+    printf("%d\n", p->age);
+  }
+
+  // On démarre à la première personne de l'array (Person *p = people)
+  // On itère tant qu'on ne dépasse pas le dernier bloc mémoire de l'array (people + sizeof(people) / sizeof(Person))
+  // A chaque itération, on avance le pointeur de la taille d'1 Person (p++)
 
   return 0;
 }

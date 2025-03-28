@@ -10,6 +10,7 @@ Map* get_map(int height, int width) {
         map->blocks[i] = malloc(width * sizeof(Block));
     }
     return map;
+    // Pensez à vérifier que malloc à bien fonctionné
 }
 
 void free_map(Map* map) {

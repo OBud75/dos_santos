@@ -6,6 +6,7 @@ Password::Password(const std::string &password, bool is_encrypted){
 		// check(password) > 6char, 1 maj, 1 char special
 		if (!is_valid(password)) {
 			printf("Warning: Password it not valid. (not strong enough)\n");
+			// Ici si le mot de passe n'est pas valide le code continue quand même.
 		}
 		_raw_value = password;
 		encrypt();

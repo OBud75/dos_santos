@@ -9,6 +9,7 @@ Password::Password(const std::string &password, bool is_encrypted) {
         _encrypted_value = password;
     } else {
         _raw_value = password;
+        // idéalement on ne garde pas _raw_value en mémoire
         encrypt(password);
     }
 }
