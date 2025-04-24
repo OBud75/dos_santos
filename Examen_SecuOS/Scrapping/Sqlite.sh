@@ -29,3 +29,12 @@ while IFS= read -r url; do
 done < Scrap.txt
 
 echo "Données insérées dans db.sqlite3."
+
+# Le fait de concaténer directement les valeurs dans la requête SQL permet de potentielles injections SQL.
+# Typiquement si $url=toto et $title est égal à
+# "toto'); DROP TABLE title; --"
+# alors la requête devient
+# INSERT INTO title (url, title) VALUES ('toto', 'toto'); DROP TABLE title; --');
+
+# Pour éviter cela, on utilise des requêtes préparées.
+# sqlite3 db.sqlite3 "INSERT INTO title (url, title) VALUES (?, ?);" "$url" "$title"

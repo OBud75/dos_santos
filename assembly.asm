@@ -63,3 +63,5 @@ _start:
     mov rax, 60           ; Syscall: exit
     xor rdi, rdi          ; Code de sortie 0
     syscall
+
+; Vous pouvez créer des fonction (par exemple exit, newline, get_input ...)
